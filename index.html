@@ -7,22 +7,25 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
       rel="stylesheet"
     />
     <style>
       :root {
-        --bg: #0a0a0a;
-        --bg-raised: #111111;
-        --bg-subtle: #1a1a1a;
-        --border: #2a2a2a;
-        --text: #e0e0e0;
-        --text-dim: #888888;
-        --text-dimmer: #555555;
-        --accent: #00ff88;
-        --accent-dim: #00aa5c;
-        --red: #ff6b6b;
-        --yellow: #ffd93d;
+        --color-bg: #fafafa;
+        --color-bg-white: #ffffff;
+        --color-text: #1a1a1a;
+        --color-text-secondary: #4a4a4a;
+        --color-text-muted: #717171;
+        --color-primary: #0066cc;
+        --color-primary-dark: #004c99;
+        --color-primary-light: #e6f0fa;
+        --color-accent: #d64c2b;
+        --color-accent-light: #fef3f0;
+        --color-border: #e0e0e0;
+        --color-border-light: #f0f0f0;
+        --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+        --font-serif: "Libre Baskerville", Georgia, serif;
       }
 
       * {
@@ -32,24 +35,20 @@
       }
 
       html {
-        font-size: 14px;
+        font-size: 17px;
+        scroll-behavior: smooth;
       }
 
       body {
-        font-family: "JetBrains Mono", monospace;
-        background: var(--bg);
-        color: var(--text);
-        line-height: 1.6;
+        font-family: var(--font-serif);
+        background: var(--color-bg);
+        color: var(--color-text);
+        line-height: 1.7;
         -webkit-font-smoothing: antialiased;
       }
 
-      ::selection {
-        background: var(--accent);
-        color: var(--bg);
-      }
-
       a {
-        color: var(--accent);
+        color: var(--color-primary);
         text-decoration: none;
       }
 
@@ -59,15 +58,19 @@
 
       /* Layout */
       .container {
-        max-width: 900px;
+        max-width: 1100px;
         margin: 0 auto;
-        padding: 0 1.5rem;
+        padding: 0 2rem;
       }
 
       /* Header */
       header {
-        border-bottom: 1px solid var(--border);
-        padding: 1rem 0;
+        background: var(--color-bg-white);
+        border-bottom: 1px solid var(--color-border);
+        padding: 1.25rem 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
       }
 
       .header-inner {
@@ -79,144 +82,358 @@
       }
 
       .logo {
+        font-family: var(--font-sans);
         font-weight: 600;
-        font-size: 0.85rem;
-        color: var(--text);
+        font-size: 1.1rem;
+        color: var(--color-text);
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .logo-mark {
+        width: 36px;
+        height: 36px;
+        background: linear-gradient(
+          135deg,
+          var(--color-primary) 0%,
+          var(--color-primary-dark) 100%
+        );
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 700;
+        font-size: 0.9rem;
       }
 
       .logo span {
-        color: var(--text-dim);
+        color: var(--color-text-muted);
         font-weight: 400;
       }
 
       nav {
         display: flex;
-        gap: 1.5rem;
-        font-size: 0.8rem;
+        gap: 2rem;
+        font-family: var(--font-sans);
+        font-size: 0.9rem;
       }
 
       nav a {
-        color: var(--text-dim);
+        color: var(--color-text-secondary);
+        font-weight: 500;
+        transition: color 0.2s ease;
       }
 
       nav a:hover {
-        color: var(--accent);
+        color: var(--color-primary);
         text-decoration: none;
       }
 
-      /* Main content */
-      main {
-        padding: 2rem 0;
+      /* Hero */
+      .hero {
+        background: var(--color-bg-white);
+        padding: 5rem 0;
+        border-bottom: 1px solid var(--color-border);
       }
 
-      section {
-        margin-bottom: 3rem;
-        padding-bottom: 3rem;
-        border-bottom: 1px solid var(--border);
+      .hero-content {
+        max-width: 800px;
       }
 
-      section:last-of-type {
-        border-bottom: none;
-      }
-
-      /* Section headers */
-      .section-header {
-        font-size: 0.7rem;
-        font-weight: 500;
-        color: var(--text-dimmer);
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        margin-bottom: 1rem;
-      }
-
-      /* Hero / Intro */
-      .intro h1 {
-        font-size: 1.1rem;
-        font-weight: 500;
-        color: var(--text);
+      .hero h1 {
+        font-family: var(--font-serif);
+        font-size: 2.75rem;
+        font-weight: 400;
+        line-height: 1.25;
         margin-bottom: 1.5rem;
-        line-height: 1.5;
+        color: var(--color-text);
       }
 
-      .intro h1 .highlight {
-        color: var(--accent);
+      .hero h1 em {
+        color: var(--color-accent);
+        font-style: italic;
       }
 
-      .intro-meta {
+      .hero-subtitle {
+        font-size: 1.2rem;
+        color: var(--color-text-secondary);
+        line-height: 1.7;
+        margin-bottom: 2rem;
+      }
+
+      .hero-meta {
         display: flex;
-        gap: 2rem;
-        font-size: 0.8rem;
-        color: var(--text-dim);
-        margin-bottom: 1.5rem;
+        gap: 2.5rem;
         flex-wrap: wrap;
       }
 
-      .intro-meta span {
+      .hero-meta-item {
         display: flex;
         align-items: center;
         gap: 0.5rem;
-      }
-
-      .intro-meta .label {
-        color: var(--text-dimmer);
-      }
-
-      .intro-body {
+        font-family: var(--font-sans);
         font-size: 0.9rem;
-        color: var(--text-dim);
-        max-width: 700px;
+        color: var(--color-text-muted);
       }
 
-      .intro-body p {
-        margin-bottom: 1rem;
+      .hero-meta-item .dot {
+        width: 8px;
+        height: 8px;
+        background: var(--color-primary);
+        border-radius: 50%;
       }
 
-      .intro-body p:last-child {
-        margin-bottom: 0;
+      .hero-meta-item .dot.accent {
+        background: var(--color-accent);
+      }
+
+      /* Section styling */
+      section {
+        padding: 4rem 0;
+      }
+
+      .section-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .section-header h2 {
+        font-family: var(--font-sans);
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--color-primary);
+      }
+
+      .section-header::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--color-border);
       }
 
       /* Thesis */
-      .thesis-text {
-        font-size: 0.95rem;
-        color: var(--text);
-        max-width: 700px;
-        margin-bottom: 1.5rem;
+      .thesis {
+        background: var(--color-bg-white);
+        border-bottom: 1px solid var(--color-border);
       }
 
-      .thesis-detail {
+      .thesis-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+      }
+
+      @media (max-width: 768px) {
+        .thesis-content {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+      }
+
+      .thesis-main p {
+        font-size: 1.1rem;
+        margin-bottom: 1.25rem;
+        color: var(--color-text-secondary);
+      }
+
+      .thesis-main p:first-child {
+        font-size: 1.25rem;
+        color: var(--color-text);
+      }
+
+      .thesis-sidebar {
+        background: var(--color-primary-light);
+        padding: 2rem;
+        border-radius: 8px;
+        border-left: 4px solid var(--color-primary);
+      }
+
+      .thesis-sidebar h3 {
+        font-family: var(--font-sans);
         font-size: 0.85rem;
-        color: var(--text-dim);
-        max-width: 700px;
-      }
-
-      .thesis-detail p {
+        font-weight: 600;
+        color: var(--color-primary);
         margin-bottom: 1rem;
       }
 
-      /* Research table */
-      .research-table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.85rem;
+      .thesis-sidebar p {
+        font-size: 1rem;
+        color: var(--color-text-secondary);
+        font-style: italic;
+      }
+
+      /* Current Focus */
+      .current-focus {
+        background: var(--color-bg);
+      }
+
+      .focus-card {
+        background: var(--color-bg-white);
+        border: 1px solid var(--color-border);
+        border-radius: 12px;
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      @media (max-width: 768px) {
+        .focus-card {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .focus-main {
+        padding: 2.5rem;
+      }
+
+      .focus-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: var(--font-sans);
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--color-accent);
+        background: var(--color-accent-light);
+        padding: 0.35rem 0.75rem;
+        border-radius: 4px;
+        margin-bottom: 1rem;
+      }
+
+      .focus-badge::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        background: var(--color-accent);
+        border-radius: 50%;
+      }
+
+      .focus-main h3 {
+        font-family: var(--font-serif);
+        font-size: 1.5rem;
+        font-weight: 400;
+        margin-bottom: 0.5rem;
+      }
+
+      .focus-main .subtitle {
+        font-family: var(--font-sans);
+        font-size: 0.9rem;
+        color: var(--color-text-muted);
+        margin-bottom: 1.25rem;
+      }
+
+      .focus-main .description {
+        color: var(--color-text-secondary);
         margin-bottom: 1.5rem;
       }
 
-      .research-table th {
-        text-align: left;
+      .focus-quote {
+        font-style: italic;
+        color: var(--color-text);
+        padding-left: 1rem;
+        border-left: 3px solid var(--color-accent);
+        margin-bottom: 1.5rem;
+      }
+
+      .focus-links {
+        display: flex;
+        gap: 1.5rem;
+        font-family: var(--font-sans);
+        font-size: 0.9rem;
+      }
+
+      .focus-links a {
         font-weight: 500;
-        color: var(--text-dimmer);
-        font-size: 0.7rem;
+      }
+
+      .focus-details {
+        background: var(--color-bg);
+        padding: 2.5rem;
+        border-left: 1px solid var(--color-border);
+      }
+
+      @media (max-width: 768px) {
+        .focus-details {
+          border-left: none;
+          border-top: 1px solid var(--color-border);
+        }
+      }
+
+      .focus-details h4 {
+        font-family: var(--font-sans);
+        font-size: 0.8rem;
+        font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.05em;
-        padding: 0.75rem 1rem 0.75rem 0;
-        border-bottom: 1px solid var(--border);
+        color: var(--color-text-muted);
+        margin-bottom: 1.5rem;
+      }
+
+      .constraint-list {
+        list-style: none;
+      }
+
+      .constraint-list li {
+        display: flex;
+        gap: 1rem;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid var(--color-border-light);
+        font-family: var(--font-sans);
+        font-size: 0.9rem;
+      }
+
+      .constraint-list li:last-child {
+        border-bottom: none;
+      }
+
+      .constraint-list .label {
+        color: var(--color-text-muted);
+        min-width: 100px;
+      }
+
+      .constraint-list .value {
+        color: var(--color-text-secondary);
+      }
+
+      /* Research Table */
+      .research-section {
+        background: var(--color-bg-white);
+        border-top: 1px solid var(--color-border);
+        border-bottom: 1px solid var(--color-border);
+      }
+
+      .research-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .research-table th {
+        font-family: var(--font-sans);
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--color-text-muted);
+        text-align: left;
+        padding: 1rem 1.5rem;
+        background: var(--color-bg);
+        border-bottom: 1px solid var(--color-border);
       }
 
       .research-table td {
-        padding: 1rem 1rem 1rem 0;
-        border-bottom: 1px solid var(--bg-subtle);
-        vertical-align: top;
-        color: var(--text-dim);
+        padding: 1.25rem 1.5rem;
+        border-bottom: 1px solid var(--color-border-light);
+        font-family: var(--font-sans);
+        font-size: 0.95rem;
+        color: var(--color-text-secondary);
       }
 
       .research-table tr:last-child td {
@@ -224,172 +441,265 @@
       }
 
       .research-table .project-name {
-        color: var(--text);
+        color: var(--color-text);
         font-weight: 500;
       }
 
-      .research-table .status {
-        font-size: 0.75rem;
-        padding: 0.15rem 0.5rem;
-        border-radius: 2px;
-        display: inline-block;
-      }
-
-      .research-table .status--active {
-        background: rgba(0, 255, 136, 0.15);
-        color: var(--accent);
-      }
-
-      .research-table .status--archive {
-        background: var(--bg-subtle);
-        color: var(--text-dimmer);
-      }
-
-      /* Pattern */
-      .pattern-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1px;
-        background: var(--border);
-        border: 1px solid var(--border);
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
         font-size: 0.8rem;
-        margin-bottom: 1.5rem;
+        font-weight: 500;
+        padding: 0.25rem 0.6rem;
+        border-radius: 4px;
       }
 
-      @media (max-width: 600px) {
-        .pattern-grid {
-          grid-template-columns: 1fr 1fr;
+      .status--active {
+        background: #e8f5e9;
+        color: #2e7d32;
+      }
+
+      .status--archive {
+        background: var(--color-bg);
+        color: var(--color-text-muted);
+      }
+
+      /* Journal */
+      .journal-section {
+        background: var(--color-bg);
+      }
+
+      .journal-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+
+      @media (max-width: 768px) {
+        .journal-grid {
+          grid-template-columns: 1fr;
         }
       }
 
-      .pattern-grid > div {
-        background: var(--bg);
-        padding: 1rem;
+      .journal-card {
+        background: var(--color-bg-white);
+        border: 1px solid var(--color-border);
+        border-radius: 8px;
+        padding: 1.75rem;
+        transition:
+          border-color 0.2s ease,
+          box-shadow 0.2s ease;
       }
 
-      .pattern-grid .header {
-        background: var(--bg-raised);
-        color: var(--text-dimmer);
+      .journal-card:hover {
+        border-color: var(--color-primary);
+        box-shadow: 0 4px 12px rgba(0, 102, 204, 0.08);
+      }
+
+      .journal-meta {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 0.75rem;
+        font-family: var(--font-sans);
+        font-size: 0.8rem;
+      }
+
+      .journal-date {
+        color: var(--color-text-muted);
+      }
+
+      .journal-tag {
+        background: var(--color-primary-light);
+        color: var(--color-primary);
+        padding: 0.15rem 0.5rem;
+        border-radius: 3px;
+        font-weight: 500;
         font-size: 0.7rem;
         text-transform: uppercase;
-        letter-spacing: 0.05em;
+        letter-spacing: 0.03em;
       }
 
-      .pattern-grid .cell {
-        color: var(--text-dim);
+      .journal-card h3 {
+        font-family: var(--font-serif);
+        font-size: 1.1rem;
+        font-weight: 400;
+        line-height: 1.4;
+        margin-bottom: 0.75rem;
       }
 
-      .pattern-grid .cell strong {
-        color: var(--text);
-        font-weight: 500;
+      .journal-card h3 a {
+        color: var(--color-text);
       }
 
-      .pattern-insight {
-        font-size: 0.85rem;
-        color: var(--text-dim);
-        padding-left: 1rem;
-        border-left: 2px solid var(--accent-dim);
+      .journal-card h3 a:hover {
+        color: var(--color-primary);
+        text-decoration: none;
       }
 
-      /* Ask section */
-      .ask-block {
-        background: var(--bg-raised);
-        border: 1px solid var(--border);
-        padding: 1.5rem;
-      }
-
-      .ask-block h3 {
+      .journal-card p {
+        font-family: var(--font-sans);
         font-size: 0.9rem;
-        font-weight: 500;
-        color: var(--text);
-        margin-bottom: 1rem;
+        color: var(--color-text-muted);
+        line-height: 1.6;
       }
 
-      .ask-block p {
-        font-size: 0.85rem;
-        color: var(--text-dim);
+      .journal-footer {
+        margin-top: 2rem;
+        text-align: center;
+      }
+
+      .journal-footer a {
+        font-family: var(--font-sans);
+        font-weight: 500;
+      }
+
+      /* Ask Section */
+      .ask-section {
+        background: linear-gradient(
+          135deg,
+          var(--color-primary) 0%,
+          var(--color-primary-dark) 100%
+        );
+        color: white;
+        padding: 5rem 0;
+      }
+
+      .ask-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: start;
+      }
+
+      @media (max-width: 768px) {
+        .ask-content {
+          grid-template-columns: 1fr;
+          gap: 2.5rem;
+        }
+      }
+
+      .ask-main h2 {
+        font-family: var(--font-serif);
+        font-size: 2rem;
+        font-weight: 400;
+        margin-bottom: 1.5rem;
+        line-height: 1.3;
+      }
+
+      .ask-main p {
+        font-size: 1.1rem;
+        opacity: 0.9;
         margin-bottom: 1rem;
       }
 
       .ask-list {
         list-style: none;
-        margin: 1rem 0;
-        font-size: 0.85rem;
+        margin: 1.5rem 0;
       }
 
       .ask-list li {
-        color: var(--text-dim);
-        padding: 0.35rem 0;
-        padding-left: 1.5rem;
+        padding: 0.5rem 0 0.5rem 1.5rem;
         position: relative;
+        opacity: 0.9;
       }
 
       .ask-list li::before {
         content: "→";
         position: absolute;
         left: 0;
-        color: var(--text-dimmer);
-      }
-
-      .ask-want {
-        margin-top: 1.25rem;
-        padding-top: 1.25rem;
-        border-top: 1px solid var(--border);
-        font-size: 0.85rem;
-      }
-
-      .ask-want strong {
-        color: var(--accent);
+        opacity: 0.6;
       }
 
       .ask-cta {
-        margin-top: 1.5rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 2.5rem;
+        backdrop-filter: blur(10px);
+      }
+
+      .ask-cta h3 {
+        font-family: var(--font-sans);
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .ask-cta p {
+        opacity: 0.85;
+        margin-bottom: 1.5rem;
+        font-size: 1rem;
+      }
+
+      .ask-buttons {
         display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 0.75rem;
       }
 
-      .ask-cta a {
-        font-size: 0.8rem;
-        padding: 0.5rem 1rem;
-        border: 1px solid var(--border);
-        color: var(--text-dim);
-        transition: all 0.15s ease;
+      .ask-buttons a {
+        display: block;
+        padding: 0.9rem 1.5rem;
+        border-radius: 6px;
+        font-family: var(--font-sans);
+        font-weight: 500;
+        font-size: 0.95rem;
+        text-align: center;
+        transition: all 0.2s ease;
       }
 
-      .ask-cta a:hover {
-        border-color: var(--accent);
-        color: var(--accent);
+      .ask-buttons a.primary {
+        background: white;
+        color: var(--color-primary-dark);
+      }
+
+      .ask-buttons a.primary:hover {
+        background: var(--color-bg);
         text-decoration: none;
       }
 
-      .ask-cta a.primary {
-        background: var(--accent);
-        border-color: var(--accent);
-        color: var(--bg);
+      .ask-buttons a.secondary {
+        background: rgba(255, 255, 255, 0.15);
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.3);
       }
 
-      .ask-cta a.primary:hover {
-        background: var(--accent-dim);
-        border-color: var(--accent-dim);
+      .ask-buttons a.secondary:hover {
+        background: rgba(255, 255, 255, 0.25);
+        text-decoration: none;
       }
 
-      /* Commercial note */
-      .commercial-note {
+      /* Commercial */
+      .commercial-section {
+        background: var(--color-bg-white);
+        padding: 3rem 0;
+        border-bottom: 1px solid var(--color-border);
+      }
+
+      .commercial-inner {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        font-size: 0.8rem;
-        color: var(--text-dimmer);
         flex-wrap: wrap;
         gap: 1rem;
+      }
+
+      .commercial-inner p {
+        font-family: var(--font-sans);
+        font-size: 0.95rem;
+        color: var(--color-text-muted);
+      }
+
+      .commercial-inner a {
+        font-family: var(--font-sans);
+        font-weight: 500;
       }
 
       /* Footer */
       footer {
-        border-top: 1px solid var(--border);
-        padding: 1.5rem 0;
-        font-size: 0.8rem;
+        background: var(--color-bg-white);
+        padding: 3rem 0;
       }
 
       .footer-inner {
@@ -401,215 +711,37 @@
       }
 
       .footer-about {
-        color: var(--text-dim);
         max-width: 400px;
       }
 
-      .footer-about strong {
-        color: var(--text);
+      .footer-about h4 {
+        font-family: var(--font-sans);
+        font-size: 0.95rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      .footer-about p {
+        font-family: var(--font-sans);
+        font-size: 0.9rem;
+        color: var(--color-text-muted);
+        line-height: 1.6;
       }
 
       .footer-links {
         display: flex;
-        gap: 1.5rem;
+        gap: 2rem;
       }
 
       .footer-links a {
-        color: var(--text-dimmer);
-      }
-
-      /* Methodology preview */
-      .methodology-preview {
-        background: var(--bg-raised);
-        border: 1px solid var(--border);
-        padding: 1.5rem;
-        margin-top: 1.5rem;
-      }
-
-      .methodology-preview h4 {
-        font-size: 0.8rem;
-        font-weight: 500;
-        color: var(--text);
-        margin-bottom: 1rem;
-      }
-
-      .methodology-preview .constraint {
-        display: flex;
-        gap: 0.75rem;
-        font-size: 0.8rem;
-        margin-bottom: 0.5rem;
-        color: var(--text-dim);
-      }
-
-      .methodology-preview .constraint .label {
-        color: var(--text-dimmer);
-        min-width: 120px;
-      }
-
-      /* Current focus */
-      .current-focus {
-        background: var(--bg-raised);
-        border: 1px solid var(--border);
-        border-left: 3px solid var(--accent);
-        padding: 1.5rem;
-      }
-
-      .current-focus h4 {
-        font-size: 0.7rem;
-        font-weight: 500;
-        color: var(--accent);
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        margin-bottom: 0.75rem;
-      }
-
-      .current-focus .title {
-        font-size: 0.95rem;
-        color: var(--text);
-        margin-bottom: 0.5rem;
-      }
-
-      .current-focus .meta {
-        font-size: 0.8rem;
-        color: var(--text-dimmer);
-        margin-bottom: 1rem;
-      }
-
-      .current-focus .question {
-        font-size: 0.85rem;
-        color: var(--text-dim);
-        font-style: italic;
-      }
-
-      .current-focus .question::before {
-        content: '"';
-      }
-
-      .current-focus .question::after {
-        content: '"';
-      }
-
-      /* Links row */
-      .links-row {
-        display: flex;
-        gap: 1.5rem;
-        margin-top: 1rem;
-        font-size: 0.8rem;
-      }
-
-      .links-row a {
-        color: var(--text-dim);
-      }
-
-      .links-row a:hover {
-        color: var(--accent);
-      }
-
-      /* Blog / Posts */
-      .posts-list {
-        display: flex;
-        flex-direction: column;
-        gap: 1px;
-        background: var(--border);
-        border: 1px solid var(--border);
-      }
-
-      .post-item {
-        background: var(--bg);
-        padding: 1.25rem;
-        transition: background 0.15s ease;
-      }
-
-      .post-item:hover {
-        background: var(--bg-raised);
-      }
-
-      .post-meta {
-        display: flex;
-        gap: 1rem;
-        margin-bottom: 0.5rem;
-        font-size: 0.75rem;
-      }
-
-      .post-date {
-        color: var(--text-dimmer);
-      }
-
-      .post-tag {
-        color: var(--bg);
-        background: var(--text-dimmer);
-        padding: 0.1rem 0.4rem;
-        font-size: 0.65rem;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-      }
-
-      .post-tag[class*="methodology"] {
-        background: var(--accent-dim);
-      }
-
-      .post-item:nth-child(1) .post-tag {
-        background: var(--accent-dim);
-      }
-
-      .post-item:nth-child(2) .post-tag {
-        background: #5a7fbf;
-      }
-
-      .post-item:nth-child(3) .post-tag {
-        background: #bf8a5a;
-      }
-
-      .post-item:nth-child(4) .post-tag {
-        background: var(--text-dimmer);
-      }
-
-      .post-title {
-        display: block;
+        font-family: var(--font-sans);
         font-size: 0.9rem;
+        color: var(--color-text-muted);
         font-weight: 500;
-        color: var(--text);
-        margin-bottom: 0.5rem;
-        text-decoration: none;
       }
 
-      .post-title:hover {
-        color: var(--accent);
-        text-decoration: none;
-      }
-
-      .post-excerpt {
-        font-size: 0.8rem;
-        color: var(--text-dim);
-        line-height: 1.5;
-      }
-
-      .posts-footer {
-        margin-top: 1rem;
-        font-size: 0.8rem;
-      }
-
-      .posts-footer a {
-        color: var(--text-dim);
-      }
-
-      .posts-footer a:hover {
-        color: var(--accent);
-      }
-
-      /* Code-like quote */
-      .pullquote {
-        font-size: 0.9rem;
-        color: var(--yellow);
-        margin: 1.5rem 0;
-        padding: 1rem;
-        background: var(--bg-raised);
-        border-left: 2px solid var(--yellow);
-      }
-
-      .pullquote::before {
-        content: "// ";
-        color: var(--text-dimmer);
+      .footer-links a:hover {
+        color: var(--color-primary);
       }
     </style>
   </head>
@@ -617,11 +749,14 @@
     <header>
       <div class="container">
         <div class="header-inner">
-          <div class="logo">YRI <span>/ Yield Research Institute</span></div>
+          <div class="logo">
+            <div class="logo-mark">YRI</div>
+            Yield Research Institute
+          </div>
           <nav>
             <a href="#research">Research</a>
             <a href="#methodology">Methodology</a>
-            <a href="#insights">Journal</a>
+            <a href="#journal">Journal</a>
             <a href="#ask">Collaborate</a>
             <a href="https://github.com/yri-ai">GitHub</a>
           </nav>
@@ -629,21 +764,38 @@
       </div>
     </header>
 
-    <main>
+    <section class="hero">
       <div class="container">
-        <section class="intro">
+        <div class="hero-content">
           <h1>
-            What do humans see that AI misses?<br />What does AI see that
-            <span class="highlight">humans ignore</span>?
+            What do humans see that AI misses? What does AI see that
+            <em>humans ignore?</em>
           </h1>
-          <div class="intro-meta">
-            <span
-              ><span class="label">Focus:</span> AI-human symbiosis in
-              high-stakes decisions</span
-            >
-            <span><span class="label">Status:</span> Active research</span>
+          <p class="hero-subtitle">
+            Public research on AI-human symbiosis in high-stakes decisions.
+            We're building the methodology—and publishing everything we learn.
+          </p>
+          <div class="hero-meta">
+            <div class="hero-meta-item">
+              <span class="dot"></span>
+              AI-Human Decision Systems
+            </div>
+            <div class="hero-meta-item">
+              <span class="dot accent"></span>
+              Active Research
+            </div>
           </div>
-          <div class="intro-body">
+        </div>
+      </div>
+    </section>
+
+    <section class="thesis" id="methodology">
+      <div class="container">
+        <div class="section-header">
+          <h2>The Thesis</h2>
+        </div>
+        <div class="thesis-content">
+          <div class="thesis-main">
             <p>
               AI has conquered the quantitative layer. Models parse documents in
               seconds, flag anomalies, calculate risk scores.
@@ -655,195 +807,205 @@
               the models miss.
             </p>
             <p>
-              We're researching where that gap lives—and publishing everything
-              we learn.
+              We're researching where that gap lives—and building systems that
+              close it without eliminating the human judgment that matters.
             </p>
           </div>
-        </section>
+          <div class="thesis-sidebar">
+            <h3>Our Approach</h3>
+            <p>
+              "Retrospective before predictive. We start with deals where the
+              outcome is known, work backward to what was knowable, then build
+              forward."
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <section id="research">
-          <div class="section-header">Research Projects</div>
-
-          <div class="current-focus">
-            <h4>Current Focus</h4>
-            <div class="title">
-              Deal Signal — WeWork/BowX SPAC Merger (2021)
-            </div>
-            <div class="meta">
-              Testing AI architectures against a deal with known outcome. S-4
-              filings, investor presentations, public documents only.
-            </div>
-            <div class="question">
+    <section class="current-focus" id="research">
+      <div class="container">
+        <div class="section-header">
+          <h2>Current Focus</h2>
+        </div>
+        <div class="focus-card">
+          <div class="focus-main">
+            <div class="focus-badge">Active Research</div>
+            <h3>Deal Signal</h3>
+            <p class="subtitle">WeWork/BowX SPAC Merger (October 2021)</p>
+            <p class="description">
+              Testing AI architectures against a deal with known outcome. What
+              could systems have surfaced from the documents? What required
+              human judgment?
+            </p>
+            <p class="focus-quote">
               The numbers said yes. Everyone said yes. They were all wrong.
               Let's figure out why.
-            </div>
-            <div class="links-row">
-              <a href="/research/deal-signal">Methodology</a>
+            </p>
+            <div class="focus-links">
+              <a href="/research/deal-signal">Methodology →</a>
               <a href="https://github.com/yri-ai/deal-signal">GitHub</a>
               <a href="/journal">Journal</a>
             </div>
           </div>
-
-          <table class="research-table">
-            <thead>
-              <tr>
-                <th>Project</th>
-                <th>Domain</th>
-                <th>Expert</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><span class="project-name">Deal Signal</span></td>
-                <td>Investment decisions</td>
-                <td>Deal professionals</td>
-                <td><span class="status status--active">Active</span></td>
-              </tr>
-              <tr>
-                <td><span class="project-name">MRI Triage</span></td>
-                <td>Medical imaging</td>
-                <td>Radiologists</td>
-                <td><span class="status status--archive">Archive</span></td>
-              </tr>
-            </tbody>
-          </table>
-
-          <div class="pattern-insight">
-            Same architecture: AI surfaces signals from dense data. Human
-            experts decide. The research question is where to draw the line.
+          <div class="focus-details">
+            <h4>Study Constraints</h4>
+            <ul class="constraint-list">
+              <li>
+                <span class="label">Documents</span>
+                <span class="value"
+                  >Only materials available before merger close</span
+                >
+              </li>
+              <li>
+                <span class="label">Contamination</span>
+                <span class="value"
+                  >LLMs trained on post-failure data; controls documented</span
+                >
+              </li>
+              <li>
+                <span class="label">Ground Truth</span>
+                <span class="value"
+                  >Established before AI testing, locked, published</span
+                >
+              </li>
+              <li>
+                <span class="label">Questions</span>
+                <span class="value"
+                  >40 questions: extraction, calculation, inference,
+                  judgment</span
+                >
+              </li>
+              <li>
+                <span class="label">Evaluation</span>
+                <span class="value"
+                  >Found, Accurate, Complete, Cited, Relevant, Actionable</span
+                >
+              </li>
+            </ul>
           </div>
-        </section>
+        </div>
+      </div>
+    </section>
 
-        <section id="methodology">
-          <div class="section-header">Methodology</div>
+    <section class="research-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>All Research</h2>
+        </div>
+        <table class="research-table">
+          <thead>
+            <tr>
+              <th>Project</th>
+              <th>Domain</th>
+              <th>Expert</th>
+              <th>AI Role</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="project-name">Deal Signal</span></td>
+              <td>Investment Decisions</td>
+              <td>Deal Professionals</td>
+              <td>Surface risk signals from documents</td>
+              <td><span class="status status--active">Active</span></td>
+            </tr>
+            <tr>
+              <td><span class="project-name">MRI Triage</span></td>
+              <td>Medical Imaging</td>
+              <td>Radiologists</td>
+              <td>Surface urgency signals from scans</td>
+              <td><span class="status status--archive">Archive</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-          <div class="thesis-text">
-            Retrospective before predictive. We start with deals where the
-            outcome is known, work backward to what was knowable, then build
-            forward.
-          </div>
-
-          <div class="thesis-detail">
-            <p>
-              Most AI demos show the wins. We publish the failures: what AI
-              confidently asserted that was wrong, what it missed entirely,
-              where human judgment needed to override.
-            </p>
-            <p>
-              Transparency about limitations builds trust—and better systems.
-            </p>
-          </div>
-
-          <div class="methodology-preview">
-            <h4>WeWork Case Study Constraints</h4>
-            <div class="constraint">
-              <span class="label">Documents:</span> Only materials available
-              before merger close (Oct 2021)
+    <section class="journal-section" id="journal">
+      <div class="container">
+        <div class="section-header">
+          <h2>Journal</h2>
+        </div>
+        <div class="journal-grid">
+          <article class="journal-card">
+            <div class="journal-meta">
+              <span class="journal-date">Jan 2, 2025</span>
+              <span class="journal-tag">Methodology</span>
             </div>
-            <div class="constraint">
-              <span class="label">Contamination:</span> LLMs trained on
-              post-failure data; controls documented
-            </div>
-            <div class="constraint">
-              <span class="label">Ground truth:</span> Established before AI
-              testing, locked, published
-            </div>
-            <div class="constraint">
-              <span class="label">Questions:</span> 40 questions across
-              extraction, calculation, inference, judgment
-            </div>
-            <div class="constraint">
-              <span class="label">Evaluation:</span> Found, Accurate, Complete,
-              Cited, Relevant, Actionable
-            </div>
-          </div>
-
-          <div class="pullquote">
-            What was knowable? Could any configuration have caught the WeWork
-            risks?
-          </div>
-        </section>
-
-        <section id="insights">
-          <div class="section-header">Journal / Insights</div>
-
-          <div class="posts-list">
-            <article class="post-item">
-              <div class="post-meta">
-                <span class="post-date">2025-01-02</span>
-                <span class="post-tag">methodology</span>
-              </div>
-              <a href="/journal/contamination-problem" class="post-title"
+            <h3>
+              <a href="/journal/contamination-problem"
                 >The Contamination Problem: When Your Model Already Knows the
                 Answer</a
               >
-              <p class="post-excerpt">
-                Modern LLMs were trained on WeWork's failure. When we ask "what
-                are the risks?", are we testing document analysis or pattern
-                matching to known outcomes?
-              </p>
-            </article>
-
-            <article class="post-item">
-              <div class="post-meta">
-                <span class="post-date">2024-12-18</span>
-                <span class="post-tag">case-study</span>
-              </div>
-              <a href="/journal/ground-truth-process" class="post-title"
+            </h3>
+            <p>
+              Modern LLMs were trained on WeWork's failure. Are we testing
+              document analysis or pattern matching to known outcomes?
+            </p>
+          </article>
+          <article class="journal-card">
+            <div class="journal-meta">
+              <span class="journal-date">Dec 18, 2024</span>
+              <span class="journal-tag">Case Study</span>
+            </div>
+            <h3>
+              <a href="/journal/ground-truth-process"
                 >Establishing Ground Truth Before AI Touches the Documents</a
               >
-              <p class="post-excerpt">
-                We document what should be caught through expert human analysis
-                first. Then we lock it. Then we test. Order matters.
-              </p>
-            </article>
-
-            <article class="post-item">
-              <div class="post-meta">
-                <span class="post-date">2024-12-04</span>
-                <span class="post-tag">thesis</span>
-              </div>
-              <a href="/journal/why-build-in-public" class="post-title"
+            </h3>
+            <p>
+              We document what should be caught through expert human analysis
+              first. Then we lock it. Then we test.
+            </p>
+          </article>
+          <article class="journal-card">
+            <div class="journal-meta">
+              <span class="journal-date">Dec 4, 2024</span>
+              <span class="journal-tag">Thesis</span>
+            </div>
+            <h3>
+              <a href="/journal/why-build-in-public"
                 >Why Build in Public: Research That Only Works With Outside
                 Input</a
               >
-              <p class="post-excerpt">
-                This project assumes human judgment isn't a bug to be engineered
-                out. Testing that assumption requires humans who've made those
-                judgment calls.
-              </p>
-            </article>
-
-            <article class="post-item">
-              <div class="post-meta">
-                <span class="post-date">2024-11-21</span>
-                <span class="post-tag">archive</span>
-              </div>
-              <a href="/journal/mri-lessons" class="post-title"
+            </h3>
+            <p>
+              This project assumes human judgment isn't a bug to be engineered
+              out. Testing that requires humans who've made those calls.
+            </p>
+          </article>
+          <article class="journal-card">
+            <div class="journal-meta">
+              <span class="journal-date">Nov 21, 2024</span>
+              <span class="journal-tag">Archive</span>
+            </div>
+            <h3>
+              <a href="/journal/mri-lessons"
                 >What MRI Triage Taught Us About Expert Attention Allocation</a
               >
-              <p class="post-excerpt">
-                Radiologists can't scrutinize every scan equally. Neither can
-                deal professionals. The architecture of assistance is the same.
-              </p>
-            </article>
-          </div>
+            </h3>
+            <p>
+              Radiologists can't scrutinize every scan equally. Neither can deal
+              professionals. The architecture is the same.
+            </p>
+          </article>
+        </div>
+        <div class="journal-footer">
+          <a href="/journal">View all entries →</a>
+        </div>
+      </div>
+    </section>
 
-          <div class="posts-footer">
-            <a href="/journal">View all entries →</a>
-          </div>
-        </section>
-
-        <section id="ask">
-          <div class="section-header">The Ask</div>
-
-          <div class="ask-block">
-            <h3>
+    <section class="ask-section" id="ask">
+      <div class="container">
+        <div class="ask-content">
+          <div class="ask-main">
+            <h2>
               This research is early. The methodology is incomplete. I'm asking
               anyway.
-            </h3>
-
+            </h2>
             <p>If you are:</p>
             <ul class="ask-list">
               <li>
@@ -862,42 +1024,35 @@
                 An AI practitioner who thinks this framing is naïve or wrong
               </li>
             </ul>
-
-            <div class="ask-want">
-              <strong>I want:</strong> 30 minutes. Blunt feedback. Examples of
-              where this breaks. <br />No pitch. No deck. Just conversation.
-            </div>
-
-            <div class="ask-cta">
+          </div>
+          <div class="ask-cta">
+            <h3>The Ask</h3>
+            <p>
+              30 minutes. Blunt feedback. Examples of where this breaks. No
+              pitch. No deck. Just conversation.
+            </p>
+            <div class="ask-buttons">
               <a href="mailto:leonard@yri.ai" class="primary">leonard@yri.ai</a>
               <a
                 href="https://github.com/yri-ai/deal-signal/issues/new?title=Conversation"
-                >Open GitHub issue</a
+                class="secondary"
+                >Open a GitHub Issue</a
               >
             </div>
           </div>
-        </section>
-
-        <section>
-          <div class="section-header">Commercial</div>
-          <div class="commercial-note">
-            <span
-              >Research yields insights.
-              <a href="https://yriskit.ai">Yriskit</a> implements them.
-              Different sites, same thesis.</span
-            >
-            <a href="https://yriskit.ai">yriskit.ai →</a>
-          </div>
-        </section>
+        </div>
       </div>
-    </main>
+    </section>
 
     <footer>
       <div class="container">
         <div class="footer-inner">
           <div class="footer-about">
-            <strong>Leonard</strong> — Building deal intelligence systems.
-            Trying to understand where humans and AI each get decisions wrong.
+            <h4>Leonard</h4>
+            <p>
+              Building deal intelligence systems. Trying to understand where
+              humans and AI each get decisions wrong.
+            </p>
           </div>
           <div class="footer-links">
             <a href="https://github.com/yri-ai">GitHub</a>
