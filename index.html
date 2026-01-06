@@ -465,96 +465,6 @@
         color: var(--color-text-muted);
       }
 
-      /* Journal */
-      .journal-section {
-        background: var(--color-bg);
-      }
-
-      .journal-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-      }
-
-      @media (max-width: 768px) {
-        .journal-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      .journal-card {
-        background: var(--color-bg-white);
-        border: 1px solid var(--color-border);
-        border-radius: 8px;
-        padding: 1.75rem;
-        transition:
-          border-color 0.2s ease,
-          box-shadow 0.2s ease;
-      }
-
-      .journal-card:hover {
-        border-color: var(--color-primary);
-        box-shadow: 0 4px 12px rgba(0, 102, 204, 0.08);
-      }
-
-      .journal-meta {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        margin-bottom: 0.75rem;
-        font-family: var(--font-sans);
-        font-size: 0.8rem;
-      }
-
-      .journal-date {
-        color: var(--color-text-muted);
-      }
-
-      .journal-tag {
-        background: var(--color-primary-light);
-        color: var(--color-primary);
-        padding: 0.15rem 0.5rem;
-        border-radius: 3px;
-        font-weight: 500;
-        font-size: 0.7rem;
-        text-transform: uppercase;
-        letter-spacing: 0.03em;
-      }
-
-      .journal-card h3 {
-        font-family: var(--font-serif);
-        font-size: 1.1rem;
-        font-weight: 400;
-        line-height: 1.4;
-        margin-bottom: 0.75rem;
-      }
-
-      .journal-card h3 a {
-        color: var(--color-text);
-      }
-
-      .journal-card h3 a:hover {
-        color: var(--color-primary);
-        text-decoration: none;
-      }
-
-      .journal-card p {
-        font-family: var(--font-sans);
-        font-size: 0.9rem;
-        color: var(--color-text-muted);
-        line-height: 1.6;
-      }
-
-      .journal-footer {
-        margin-top: 2rem;
-        text-align: center;
-      }
-
-      .journal-footer a {
-        font-family: var(--font-sans);
-        font-weight: 500;
-      }
-
       /* Ask Section */
       .ask-section {
         background: linear-gradient(
@@ -756,9 +666,9 @@
           <nav>
             <a href="#research">Research</a>
             <a href="#methodology">Methodology</a>
-            <a href="#journal">Journal</a>
             <a href="#ask">Collaborate</a>
             <a href="https://github.com/yri-ai">GitHub</a>
+            <a href="https://x.com/lenlangsdorf">@lenlangsdorf</a>
           </nav>
         </div>
       </div>
@@ -844,8 +754,7 @@
             </p>
             <div class="focus-links">
               <a href="/research/deal-signal">Methodology →</a>
-              <a href="https://github.com/yri-ai/deal-signal">GitHub</a>
-              <a href="/journal">Journal</a>
+              <a href="https://github.com/yri-ai/DealSignals">GitHub</a>
             </div>
           </div>
           <div class="focus-details">
@@ -923,81 +832,6 @@
       </div>
     </section>
 
-    <section class="journal-section" id="journal">
-      <div class="container">
-        <div class="section-header">
-          <h2>Journal</h2>
-        </div>
-        <div class="journal-grid">
-          <article class="journal-card">
-            <div class="journal-meta">
-              <span class="journal-date">Jan 2, 2025</span>
-              <span class="journal-tag">Methodology</span>
-            </div>
-            <h3>
-              <a href="/journal/contamination-problem"
-                >The Contamination Problem: When Your Model Already Knows the
-                Answer</a
-              >
-            </h3>
-            <p>
-              Modern LLMs were trained on WeWork's failure. Are we testing
-              document analysis or pattern matching to known outcomes?
-            </p>
-          </article>
-          <article class="journal-card">
-            <div class="journal-meta">
-              <span class="journal-date">Dec 18, 2024</span>
-              <span class="journal-tag">Case Study</span>
-            </div>
-            <h3>
-              <a href="/journal/ground-truth-process"
-                >Establishing Ground Truth Before AI Touches the Documents</a
-              >
-            </h3>
-            <p>
-              We document what should be caught through expert human analysis
-              first. Then we lock it. Then we test.
-            </p>
-          </article>
-          <article class="journal-card">
-            <div class="journal-meta">
-              <span class="journal-date">Dec 4, 2024</span>
-              <span class="journal-tag">Thesis</span>
-            </div>
-            <h3>
-              <a href="/journal/why-build-in-public"
-                >Why Build in Public: Research That Only Works With Outside
-                Input</a
-              >
-            </h3>
-            <p>
-              This project assumes human judgment isn't a bug to be engineered
-              out. Testing that requires humans who've made those calls.
-            </p>
-          </article>
-          <article class="journal-card">
-            <div class="journal-meta">
-              <span class="journal-date">Nov 21, 2024</span>
-              <span class="journal-tag">Archive</span>
-            </div>
-            <h3>
-              <a href="/journal/mri-lessons"
-                >What MRI Triage Taught Us About Expert Attention Allocation</a
-              >
-            </h3>
-            <p>
-              Radiologists can't scrutinize every scan equally. Neither can deal
-              professionals. The architecture is the same.
-            </p>
-          </article>
-        </div>
-        <div class="journal-footer">
-          <a href="/journal">View all entries →</a>
-        </div>
-      </div>
-    </section>
-
     <section class="ask-section" id="ask">
       <div class="container">
         <div class="ask-content">
@@ -1034,7 +868,7 @@
             <div class="ask-buttons">
               <a href="mailto:leonard@yri.ai" class="primary">leonard@yri.ai</a>
               <a
-                href="https://github.com/yri-ai/deal-signal/issues/new?title=Conversation"
+                href="https://github.com/yri-ai/DealSignals/issues/new?title=Conversation"
                 class="secondary"
                 >Open a GitHub Issue</a
               >
@@ -1056,7 +890,7 @@
           </div>
           <div class="footer-links">
             <a href="https://github.com/yri-ai">GitHub</a>
-            <a href="/journal">Journal</a>
+            <a href="https://x.com/lenlangsdorf">@lenlangsdorf</a>
             <a href="mailto:leonard@yri.ai">Email</a>
           </div>
         </div>
