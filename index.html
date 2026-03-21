@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>YRI — Yield Research Institute</title>
+    <title>yri.ai — Context, Coordination, Judgment</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -108,11 +108,6 @@
         font-size: 0.9rem;
       }
 
-      .logo span {
-        color: var(--color-text-muted);
-        font-weight: 400;
-      }
-
       nav {
         display: flex;
         gap: 2rem;
@@ -163,30 +158,40 @@
         margin-bottom: 2rem;
       }
 
-      .hero-meta {
+      .hero-cta {
         display: flex;
-        gap: 2.5rem;
+        gap: 1rem;
         flex-wrap: wrap;
       }
 
-      .hero-meta-item {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
+      .hero-cta a {
         font-family: var(--font-sans);
-        font-size: 0.9rem;
-        color: var(--color-text-muted);
+        font-weight: 500;
+        padding: 0.75rem 1.5rem;
+        border-radius: 6px;
+        transition: all 0.2s ease;
       }
 
-      .hero-meta-item .dot {
-        width: 8px;
-        height: 8px;
+      .hero-cta a.primary {
         background: var(--color-primary);
-        border-radius: 50%;
+        color: white;
       }
 
-      .hero-meta-item .dot.accent {
-        background: var(--color-accent);
+      .hero-cta a.primary:hover {
+        background: var(--color-primary-dark);
+        text-decoration: none;
+      }
+
+      .hero-cta a.secondary {
+        background: transparent;
+        color: var(--color-text-secondary);
+        border: 1px solid var(--color-border);
+      }
+
+      .hero-cta a.secondary:hover {
+        border-color: var(--color-primary);
+        color: var(--color-primary);
+        text-decoration: none;
       }
 
       /* Section styling */
@@ -217,82 +222,92 @@
         background: var(--color-border);
       }
 
-      /* Thesis */
-      .thesis {
+      /* Research Stack Overview */
+      .research-stack {
         background: var(--color-bg-white);
         border-bottom: 1px solid var(--color-border);
       }
 
-      .thesis-content {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 4rem;
+      .stack-intro {
+        max-width: 700px;
+        margin-bottom: 3rem;
       }
 
-      @media (max-width: 768px) {
-        .thesis-content {
-          grid-template-columns: 1fr;
-          gap: 2rem;
-        }
-      }
-
-      .thesis-main p {
+      .stack-intro p {
         font-size: 1.1rem;
-        margin-bottom: 1.25rem;
         color: var(--color-text-secondary);
+        margin-bottom: 1rem;
       }
 
-      .thesis-main p:first-child {
+      .stack-intro p:first-child {
         font-size: 1.25rem;
         color: var(--color-text);
       }
 
-      .thesis-sidebar {
-        background: var(--color-primary-light);
-        padding: 2rem;
-        border-radius: 8px;
-        border-left: 4px solid var(--color-primary);
-      }
-
-      .thesis-sidebar h3 {
-        font-family: var(--font-sans);
-        font-size: 0.85rem;
-        font-weight: 600;
-        color: var(--color-primary);
-        margin-bottom: 1rem;
-      }
-
-      .thesis-sidebar p {
-        font-size: 1rem;
-        color: var(--color-text-secondary);
-        font-style: italic;
-      }
-
-      /* Current Focus */
-      .current-focus {
-        background: var(--color-bg);
-      }
-
-      .focus-card {
-        background: var(--color-bg-white);
-        border: 1px solid var(--color-border);
-        border-radius: 12px;
-        overflow: hidden;
+      .stack-flow {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        margin-bottom: 3rem;
       }
 
       @media (max-width: 768px) {
-        .focus-card {
+        .stack-flow {
           grid-template-columns: 1fr;
         }
       }
 
-      .focus-main {
+      .stack-item {
+        padding: 1.5rem;
+        border: 1px solid var(--color-border);
+        border-radius: 8px;
+        background: var(--color-bg);
+      }
+
+      .stack-item.active {
+        background: var(--color-primary-light);
+        border-color: var(--color-primary);
+      }
+
+      .stack-number {
+        font-family: var(--font-sans);
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--color-primary);
+        margin-bottom: 0.5rem;
+      }
+
+      .stack-item h3 {
+        font-family: var(--font-sans);
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      .stack-item p {
+        font-size: 0.95rem;
+        color: var(--color-text-secondary);
+        font-family: var(--font-sans);
+      }
+
+      /* Project Cards */
+      .project-section {
+        background: var(--color-bg);
+      }
+
+      .project-card {
+        background: var(--color-bg-white);
+        border: 1px solid var(--color-border);
+        border-radius: 12px;
+        overflow: hidden;
+        margin-bottom: 2rem;
+      }
+
+      .project-main {
         padding: 2.5rem;
       }
 
-      .focus-badge {
+      .project-badge {
         display: inline-flex;
         align-items: center;
         gap: 0.5rem;
@@ -301,14 +316,17 @@
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.05em;
-        color: var(--color-accent);
-        background: var(--color-accent-light);
         padding: 0.35rem 0.75rem;
         border-radius: 4px;
         margin-bottom: 1rem;
       }
 
-      .focus-badge::before {
+      .project-badge.active {
+        color: var(--color-accent);
+        background: var(--color-accent-light);
+      }
+
+      .project-badge.active::before {
         content: "";
         width: 6px;
         height: 6px;
@@ -316,95 +334,92 @@
         border-radius: 50%;
       }
 
-      .focus-main h3 {
-        font-family: var(--font-serif);
-        font-size: 1.5rem;
-        font-weight: 400;
-        margin-bottom: 0.5rem;
+      .project-badge.oss {
+        color: var(--color-primary);
+        background: var(--color-primary-light);
       }
 
-      .focus-main .subtitle {
+      .project-main h3 {
+        font-family: var(--font-serif);
+        font-size: 1.75rem;
+        font-weight: 400;
+        margin-bottom: 0.75rem;
+      }
+
+      .project-tagline {
         font-family: var(--font-sans);
-        font-size: 0.9rem;
+        font-size: 1rem;
         color: var(--color-text-muted);
         margin-bottom: 1.25rem;
+        font-style: italic;
       }
 
-      .focus-main .description {
+      .project-description {
         color: var(--color-text-secondary);
         margin-bottom: 1.5rem;
       }
 
-      .focus-quote {
-        font-style: italic;
-        color: var(--color-text);
-        padding-left: 1rem;
-        border-left: 3px solid var(--color-accent);
+      .project-description p {
+        margin-bottom: 1rem;
+      }
+
+      .project-features {
+        list-style: none;
         margin-bottom: 1.5rem;
       }
 
-      .focus-links {
+      .project-features li {
+        padding: 0.5rem 0;
+        padding-left: 1.5rem;
+        position: relative;
+        font-family: var(--font-sans);
+        font-size: 0.95rem;
+        color: var(--color-text-secondary);
+      }
+
+      .project-features li::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        opacity: 0.6;
+      }
+
+      .project-links {
         display: flex;
         gap: 1.5rem;
         font-family: var(--font-sans);
         font-size: 0.9rem;
       }
 
-      .focus-links a {
+      .project-links a {
         font-weight: 500;
       }
 
-      .focus-details {
+      .project-meta {
         background: var(--color-bg);
-        padding: 2.5rem;
-        border-left: 1px solid var(--color-border);
-      }
-
-      @media (max-width: 768px) {
-        .focus-details {
-          border-left: none;
-          border-top: 1px solid var(--color-border);
-        }
-      }
-
-      .focus-details h4 {
-        font-family: var(--font-sans);
-        font-size: 0.8rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        color: var(--color-text-muted);
-        margin-bottom: 1.5rem;
-      }
-
-      .constraint-list {
-        list-style: none;
-      }
-
-      .constraint-list li {
+        padding: 1.5rem 2.5rem;
+        border-top: 1px solid var(--color-border);
         display: flex;
-        gap: 1rem;
-        padding: 0.75rem 0;
-        border-bottom: 1px solid var(--color-border-light);
+        gap: 2rem;
+        flex-wrap: wrap;
         font-family: var(--font-sans);
-        font-size: 0.9rem;
-      }
-
-      .constraint-list li:last-child {
-        border-bottom: none;
-      }
-
-      .constraint-list .label {
+        font-size: 0.85rem;
         color: var(--color-text-muted);
-        min-width: 100px;
       }
 
-      .constraint-list .value {
+      .project-meta span {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .project-meta strong {
         color: var(--color-text-secondary);
+        font-weight: 500;
       }
 
-      /* Research Table */
-      .research-section {
+      /* Research Section */
+      .research-table-section {
         background: var(--color-bg-white);
         border-top: 1px solid var(--color-border);
         border-bottom: 1px solid var(--color-border);
@@ -445,6 +460,10 @@
         font-weight: 500;
       }
 
+      .research-table .project-name a {
+        color: var(--color-text);
+      }
+
       .status {
         display: inline-flex;
         align-items: center;
@@ -458,6 +477,11 @@
       .status--active {
         background: #e8f5e9;
         color: #2e7d32;
+      }
+
+      .status--dev {
+        background: var(--color-primary-light);
+        color: var(--color-primary-dark);
       }
 
       .status--archive {
@@ -580,32 +604,6 @@
         text-decoration: none;
       }
 
-      /* Commercial */
-      .commercial-section {
-        background: var(--color-bg-white);
-        padding: 3rem 0;
-        border-bottom: 1px solid var(--color-border);
-      }
-
-      .commercial-inner {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 1rem;
-      }
-
-      .commercial-inner p {
-        font-family: var(--font-sans);
-        font-size: 0.95rem;
-        color: var(--color-text-muted);
-      }
-
-      .commercial-inner a {
-        font-family: var(--font-sans);
-        font-weight: 500;
-      }
-
       /* Footer */
       footer {
         background: var(--color-bg-white);
@@ -661,12 +659,12 @@
         <div class="header-inner">
           <div class="logo">
             <div class="logo-mark">YRI</div>
-            Yield Research Institute
+            yri.ai
           </div>
           <nav>
+            <a href="#projects">Projects</a>
             <a href="#research">Research</a>
-            <a href="#methodology">Methodology</a>
-            <a href="#ask">Collaborate</a>
+            <a href="#ask">Contact</a>
             <a href="https://github.com/yri-ai">GitHub</a>
             <a href="https://x.com/lenlangsdorf">@lenlangsdorf</a>
           </nav>
@@ -678,129 +676,160 @@
       <div class="container">
         <div class="hero-content">
           <h1>
-            What do humans see that AI misses? What does AI see that
-            <em>humans ignore?</em>
+            Building the infrastructure for AI systems that
+            <em>understand context</em>, coordinate effectively, and exercise judgment.
           </h1>
           <p class="hero-subtitle">
-            Public research on AI-human symbiosis in high-stakes decisions.
-            We're building the methodology—and publishing everything we learn.
+            Open-source research on three hard problems: temporal context graphs, multi-agent coordination, and AI-augmented decision-making.
           </p>
-          <div class="hero-meta">
-            <div class="hero-meta-item">
-              <span class="dot"></span>
-              AI-Human Decision Systems
-            </div>
-            <div class="hero-meta-item">
-              <span class="dot accent"></span>
-              Active Research
-            </div>
+          <div class="hero-cta">
+            <a href="https://github.com/yri-ai/engram" class="primary">Explore Engram</a>
+            <a href="#projects" class="secondary">View All Projects</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="thesis" id="methodology">
+    <section class="research-stack" id="stack">
       <div class="container">
         <div class="section-header">
-          <h2>The Thesis</h2>
+          <h2>The Stack</h2>
         </div>
-        <div class="thesis-content">
-          <div class="thesis-main">
-            <p>
-              AI has conquered the quantitative layer. Models parse documents in
-              seconds, flag anomalies, calculate risk scores.
-            </p>
-            <p>
-              But experts still outperform. The radiologist who escalates a scan
-              the algorithm scored as routine. The deal professional who kills
-              an opportunity the spreadsheet approved. They're reading something
-              the models miss.
-            </p>
-            <p>
-              We're researching where that gap lives—and building systems that
-              close it without eliminating the human judgment that matters.
-            </p>
+        <div class="stack-intro">
+          <p>
+            AI systems need more than prompts and models. They need context about what changed and when, coordination mechanisms for multi-agent workflows, and judgment frameworks for high-stakes decisions.
+          </p>
+          <p>
+            These three projects explore each layer—from extracting structured knowledge from conversations, to coordinating agent swarms, to testing AI architectures against real decisions with known outcomes.
+          </p>
+        </div>
+        <div class="stack-flow">
+          <div class="stack-item active">
+            <div class="stack-number">01</div>
+            <h3>Context</h3>
+            <p>Temporal knowledge graphs that track how understanding evolves</p>
           </div>
-          <div class="thesis-sidebar">
-            <h3>Our Approach</h3>
-            <p>
-              "Retrospective before predictive. We start with deals where the
-              outcome is known, work backward to what was knowable, then build
-              forward."
-            </p>
+          <div class="stack-item">
+            <div class="stack-number">02</div>
+            <h3>Coordination</h3>
+            <p>Multi-agent systems that collaborate, track, and visualize work</p>
+          </div>
+          <div class="stack-item">
+            <div class="stack-number">03</div>
+            <h3>Judgment</h3>
+            <p>Testing AI reasoning against high-stakes human decisions</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="current-focus" id="research">
+    <section class="project-section" id="projects">
       <div class="container">
         <div class="section-header">
-          <h2>Current Focus</h2>
+          <h2>Active Projects</h2>
         </div>
-        <div class="focus-card">
-          <div class="focus-main">
-            <div class="focus-badge">Active Research</div>
-            <h3>Deal Signal</h3>
-            <p class="subtitle">WeWork/BowX SPAC Merger (October 2021)</p>
-            <p class="description">
-              Testing AI architectures against a deal with known outcome. What
-              could systems have surfaced from the documents? What required
-              human judgment?
-            </p>
-            <p class="focus-quote">
-              The numbers said yes. Everyone said yes. They were all wrong.
-              Let's figure out why.
-            </p>
-            <div class="focus-links">
-              <a
-                href="https://github.com/yri-ai/DealSignals/blob/main/Methodology.md"
-                >Methodology →</a
-              >
-              <a href="https://github.com/yri-ai/DealSignals">GitHub</a>
+
+        <!-- Engram -->
+        <div class="project-card">
+          <div class="project-main">
+            <div class="project-badge active">In Development</div>
+            <h3>Engram</h3>
+            <p class="project-tagline">What AI knows, when it knew it, and how it changed.</p>
+            <div class="project-description">
+              <p>
+                Most AI memory systems store snapshots. They remember <em>what</em> was said, but not <em>when</em> understanding shifted or <em>why</em> it matters now. Engram is different: it tracks how knowledge evolves.
+              </p>
+              <p>
+                Imagine a conversation over weeks. A client mentions they prefer Nike running shoes. Later, they switch to Adidas because of arch support. A regular AI remembers the latest preference. Engram remembers <em>the evolution</em>—when it changed, what triggered it, and what it replaced. So when you ask "what did they prefer before the switch?" you get Nike, not confusion.
+              </p>
+              <p>
+                This is a <strong>temporal context graph</strong>: not just facts, but the relationships between facts and how they change over time. Built for conversations, not documents. The only open-source system that does this.
+              </p>
             </div>
-          </div>
-          <div class="focus-details">
-            <h4>Study Constraints</h4>
-            <ul class="constraint-list">
-              <li>
-                <span class="label">Documents</span>
-                <span class="value"
-                  >Only materials available before merger close</span
-                >
-              </li>
-              <li>
-                <span class="label">Contamination</span>
-                <span class="value"
-                  >LLMs trained on post-failure data; controls documented</span
-                >
-              </li>
-              <li>
-                <span class="label">Ground Truth</span>
-                <span class="value"
-                  >Established before AI testing, locked, published</span
-                >
-              </li>
-              <li>
-                <span class="label">Questions</span>
-                <span class="value"
-                  >40 questions: extraction, calculation, inference,
-                  judgment</span
-                >
-              </li>
-              <li>
-                <span class="label">Evaluation</span>
-                <span class="value"
-                  >Found, Accurate, Complete, Cited, Relevant, Actionable</span
-                >
-              </li>
+            <ul class="project-features">
+              <li>Tracks when facts were true and when you learned them (bitemporal)</li>
+              <li>Understands "what did we know on date X?" not just "what do we know now?"</li>
+              <li>Sees contradictions and replacements, not just latest snapshot</li>
+              <li>Extracts entities, relationships, and facts from natural conversation</li>
+              <li>Production-ready: Neo4j, API, CLI, Docker</li>
             </ul>
+            <div class="project-links">
+              <a href="https://github.com/yri-ai/engram">GitHub →</a>
+              <a href="https://github.com/yri-ai/engram/blob/master/ARCHITECTURE.md">How it works →</a>
+            </div>
+          </div>
+          <div class="project-meta">
+            <span><strong>License:</strong> MIT</span>
+            <span><strong>Status:</strong> v0.1 MVP</span>
+          </div>
+        </div>
+
+        <!-- Swarm Control -->
+        <div class="project-card">
+          <div class="project-main">
+            <div class="project-badge active">Prototyping</div>
+            <h3>Swarm Control</h3>
+            <p class="project-tagline">Coordination infrastructure for AI agent swarms.</p>
+            <div class="project-description">
+              <p>
+                As AI agents proliferate, we need infrastructure to coordinate them—track what each agent is doing, visualize work in progress, and manage shared context. Swarm Control explores patterns for multi-agent coordination between AI systems and human developers.
+              </p>
+              <p>
+                Weekend prototypes exploring: event hooks from agent activity, dashboard UIs for swarm monitoring, three-tier memory systems, and timeline visualizations for agent workflows.
+              </p>
+            </div>
+            <ul class="project-features">
+              <li>Hook daemon for capturing agent events and auto-committing</li>
+              <li>Watchlist-style dashboard for real-time swarm monitoring</li>
+              <li>Three-tier markdown memory (read/write/propagate)</li>
+              <li>Swim-lane timeline views for agent activity visualization</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://github.com/yri-ai/swarm-control">GitHub →</a>
+            </div>
+          </div>
+          <div class="project-meta">
+            <span><strong>Stack:</strong> Go, React</span>
+            <span><strong>License:</strong> MIT</span>
+            <span><strong>Status:</strong> Prototype phase</span>
+          </div>
+        </div>
+
+        <!-- Deal Signals -->
+        <div class="project-card">
+          <div class="project-main">
+            <div class="project-badge active">Active Research</div>
+            <h3>Deal Signals</h3>
+            <p class="project-tagline">Testing AI architectures against decisions with known outcomes.</p>
+            <div class="project-description">
+              <p>
+                The WeWork/BowX SPAC merger (October 2021) is a case study in judgment failure. The numbers said proceed. Many sophisticated investors agreed. The outcome was catastrophic. We're testing whether AI architectures can surface signals that human decision-makers rationalized away.
+              </p>
+              <p>
+                This is applied research: feed pre-close documents to multiple AI systems and evaluate what they catch, what they miss, and how they compare to human judgment under uncertainty.
+              </p>
+            </div>
+            <ul class="project-features">
+              <li>Controlled historical case study with established ground truth</li>
+              <li>40-question evaluation framework across extraction to judgment</li>
+              <li>Multi-architecture testing (different LLM configurations)</li>
+              <li>Explicit contamination controls (LLMs trained on post-failure data)</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://github.com/yri-ai/DealSignals">GitHub →</a>
+              <a href="https://github.com/yri-ai/DealSignals/blob/main/Methodology.md">Methodology →</a>
+            </div>
+          </div>
+          <div class="project-meta">
+            <span><strong>Domain:</strong> Investment Decisions</span>
+            <span><strong>Case:</strong> WeWork/BowX SPAC (Oct 2021)</span>
+            <span><strong>Status:</strong> Analysis phase</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="research-section">
+    <section class="research-table-section" id="research">
       <div class="container">
         <div class="section-header">
           <h2>All Research</h2>
@@ -809,25 +838,34 @@
           <thead>
             <tr>
               <th>Project</th>
-              <th>Domain</th>
-              <th>Expert</th>
-              <th>AI Role</th>
+              <th>Layer</th>
+              <th>Problem</th>
               <th>Status</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><span class="project-name">Deal Signal</span></td>
-              <td>Investment Decisions</td>
-              <td>Deal Professionals</td>
-              <td>Surface risk signals from documents</td>
+              <td><span class="project-name"><a href="https://github.com/yri-ai/engram">Engram</a></span></td>
+              <td>Context</td>
+              <td>AI systems lack temporal understanding of evolving knowledge</td>
+              <td><span class="status status--dev">In Dev</span></td>
+            </tr>
+            <tr>
+              <td><span class="project-name"><a href="https://github.com/yri-ai/swarm-control">Swarm Control</a></span></td>
+              <td>Coordination</td>
+              <td>No infrastructure for multi-agent AI workflows</td>
+              <td><span class="status status--dev">Prototype</span></td>
+            </tr>
+            <tr>
+              <td><span class="project-name"><a href="https://github.com/yri-ai/DealSignals">Deal Signals</a></span></td>
+              <td>Judgment</td>
+              <td>Testing whether AI can augment human decision-making</td>
               <td><span class="status status--active">Active</span></td>
             </tr>
             <tr>
               <td><span class="project-name">MRI Triage</span></td>
-              <td>Medical Imaging</td>
-              <td>Radiologists</td>
-              <td>Surface urgency signals from scans</td>
+              <td>Judgment</td>
+              <td>Medical imaging urgency detection (exploratory)</td>
               <td><span class="status status--archive">Archive</span></td>
             </tr>
           </tbody>
@@ -840,38 +878,33 @@
         <div class="ask-content">
           <div class="ask-main">
             <h2>
-              This research is early. The methodology is incomplete. I'm asking
-              anyway.
+              This research is early. The code is incomplete. I'm building anyway.
             </h2>
             <p>If you are:</p>
             <ul class="ask-list">
               <li>
-                An investor who has killed a deal on instinct you couldn't fully
-                justify
+                Working on AI memory, context, or knowledge graphs
               </li>
               <li>
-                A radiologist who has escalated a scan the system scored as
-                routine
+                Building multi-agent systems or agent coordination infrastructure
               </li>
               <li>
-                A deal professional who's seen red flags ignored because they
-                weren't quantifiable
+                Applying AI to high-stakes decision-making (finance, medicine, strategy)
               </li>
               <li>
-                An AI practitioner who thinks this framing is naïve or wrong
+                Interested in the intersection of structured knowledge and LLMs
               </li>
             </ul>
           </div>
           <div class="ask-cta">
             <h3>The Ask</h3>
             <p>
-              30 minutes. Blunt feedback. Examples of where this breaks. No
-              pitch. No deck. Just conversation.
+              30 minutes. Blunt feedback. Examples of where this breaks. No pitch. No deck. Just conversation.
             </p>
             <div class="ask-buttons">
               <a href="mailto:leonard@yri.ai" class="primary">leonard@yri.ai</a>
               <a
-                href="https://github.com/yri-ai/DealSignals/issues/new?title=Conversation"
+                href="https://github.com/yri-ai/engram/issues/new"
                 class="secondary"
                 >Open a GitHub Issue</a
               >
@@ -887,8 +920,7 @@
           <div class="footer-about">
             <h4>Leonard</h4>
             <p>
-              Building deal intelligence systems. Trying to understand where
-              humans and AI each get decisions wrong.
+              Building infrastructure for AI judgment. Currently focused on temporal knowledge graphs, agent coordination, and testing AI reasoning against real decisions.
             </p>
           </div>
           <div class="footer-links">
