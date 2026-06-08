@@ -1,0 +1,774 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Ari Briefs turns public competitor, review, and content signals into practical Monday growth action briefs for med spas and local businesses."
+    />
+    <title>Ari Briefs — Monday Growth Action Briefs | YRI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --color-bg: #fafafa;
+        --color-bg-white: #ffffff;
+        --color-text: #1a1a1a;
+        --color-text-secondary: #4a4a4a;
+        --color-text-muted: #717171;
+        --color-primary: #0066cc;
+        --color-primary-dark: #004c99;
+        --color-primary-light: #e6f0fa;
+        --color-accent: #d64c2b;
+        --color-accent-light: #fef3f0;
+        --color-border: #e0e0e0;
+        --color-border-light: #f0f0f0;
+        --color-success: #2e7d32;
+        --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+        --font-serif: "Libre Baskerville", Georgia, serif;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        font-size: 17px;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: var(--font-serif);
+        background: var(--color-bg);
+        color: var(--color-text);
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a {
+        color: var(--color-primary);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .container {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      header {
+        background: var(--color-bg-white);
+        border-bottom: 1px solid var(--color-border);
+        padding: 1.25rem 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .header-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .logo {
+        font-family: var(--font-sans);
+        font-weight: 600;
+        font-size: 1.1rem;
+        color: var(--color-text);
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .logo-mark {
+        width: 36px;
+        height: 36px;
+        background: linear-gradient(
+          135deg,
+          var(--color-primary) 0%,
+          var(--color-primary-dark) 100%
+        );
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-family: var(--font-sans);
+        font-weight: 700;
+        font-size: 0.9rem;
+      }
+
+      nav {
+        display: flex;
+        gap: 1.5rem;
+        font-family: var(--font-sans);
+        font-size: 0.9rem;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        color: var(--color-text-secondary);
+        font-weight: 500;
+      }
+
+      nav a:hover {
+        color: var(--color-primary);
+        text-decoration: none;
+      }
+
+      .hero {
+        background: var(--color-bg-white);
+        border-bottom: 1px solid var(--color-border);
+        padding: 5rem 0;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: var(--font-sans);
+        font-size: 0.78rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--color-accent);
+        background: var(--color-accent-light);
+        padding: 0.35rem 0.7rem;
+        border-radius: 999px;
+        margin-bottom: 1.25rem;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.65fr);
+        gap: 3rem;
+        align-items: start;
+      }
+
+      h1 {
+        font-family: var(--font-serif);
+        font-size: clamp(2.3rem, 5vw, 4rem);
+        font-weight: 400;
+        line-height: 1.18;
+        margin-bottom: 1.4rem;
+      }
+
+      h1 em {
+        color: var(--color-accent);
+        font-style: italic;
+      }
+
+      .hero-subtitle {
+        font-size: 1.2rem;
+        color: var(--color-text-secondary);
+        max-width: 760px;
+        margin-bottom: 2rem;
+      }
+
+      .hero-cta,
+      .button-row {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-sans);
+        font-weight: 600;
+        padding: 0.8rem 1.35rem;
+        border-radius: 7px;
+        transition: all 0.2s ease;
+      }
+
+      .button.primary {
+        background: var(--color-primary);
+        color: white;
+      }
+
+      .button.primary:hover {
+        background: var(--color-primary-dark);
+        text-decoration: none;
+      }
+
+      .button.secondary {
+        background: transparent;
+        color: var(--color-text-secondary);
+        border: 1px solid var(--color-border);
+      }
+
+      .button.secondary:hover {
+        border-color: var(--color-primary);
+        color: var(--color-primary);
+        text-decoration: none;
+      }
+
+      .pilot-card {
+        background: var(--color-bg);
+        border: 1px solid var(--color-border);
+        border-radius: 14px;
+        padding: 1.5rem;
+        font-family: var(--font-sans);
+      }
+
+      .pilot-card h2 {
+        font-size: 1.1rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .price {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--color-primary-dark);
+        margin-bottom: 0.5rem;
+      }
+
+      .pilot-card p {
+        color: var(--color-text-secondary);
+        font-size: 0.95rem;
+        margin-bottom: 1rem;
+      }
+
+      .pilot-card ul {
+        list-style: none;
+        margin: 1rem 0 0;
+      }
+
+      .pilot-card li {
+        color: var(--color-text-secondary);
+        font-size: 0.92rem;
+        padding: 0.35rem 0 0.35rem 1.35rem;
+        position: relative;
+      }
+
+      .pilot-card li::before {
+        content: "✓";
+        color: var(--color-success);
+        position: absolute;
+        left: 0;
+        font-weight: 700;
+      }
+
+      section {
+        padding: 4rem 0;
+      }
+
+      .section-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .section-header h2 {
+        font-family: var(--font-sans);
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--color-primary);
+      }
+
+      .section-header::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--color-border);
+      }
+
+      .intro-copy {
+        max-width: 760px;
+        color: var(--color-text-secondary);
+        font-size: 1.08rem;
+        margin-bottom: 2rem;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+
+      .card {
+        background: var(--color-bg-white);
+        border: 1px solid var(--color-border);
+        border-radius: 12px;
+        padding: 1.5rem;
+      }
+
+      .card h3 {
+        font-family: var(--font-sans);
+        font-size: 1.05rem;
+        margin-bottom: 0.65rem;
+      }
+
+      .card p,
+      .card li {
+        font-family: var(--font-sans);
+        font-size: 0.95rem;
+        color: var(--color-text-secondary);
+      }
+
+      .card ul {
+        list-style: none;
+        margin-top: 0.75rem;
+      }
+
+      .card li {
+        padding: 0.35rem 0 0.35rem 1.2rem;
+        position: relative;
+      }
+
+      .card li::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: var(--color-text-muted);
+      }
+
+      .process {
+        background: var(--color-bg-white);
+        border-top: 1px solid var(--color-border);
+        border-bottom: 1px solid var(--color-border);
+      }
+
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+      }
+
+      .step {
+        border: 1px solid var(--color-border);
+        border-radius: 12px;
+        padding: 1.25rem;
+        background: var(--color-bg);
+      }
+
+      .step-number {
+        font-family: var(--font-sans);
+        color: var(--color-primary);
+        font-size: 0.8rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      .step h3 {
+        font-family: var(--font-sans);
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .step p {
+        font-family: var(--font-sans);
+        color: var(--color-text-secondary);
+        font-size: 0.92rem;
+      }
+
+      .sample-box {
+        background: var(--color-bg-white);
+        border: 1px solid var(--color-border);
+        border-radius: 14px;
+        overflow: hidden;
+      }
+
+      .sample-header {
+        background: var(--color-primary-light);
+        border-bottom: 1px solid var(--color-border);
+        padding: 1.25rem 1.5rem;
+      }
+
+      .sample-header h3 {
+        font-family: var(--font-sans);
+        color: var(--color-primary-dark);
+      }
+
+      .sample-content {
+        padding: 1.5rem;
+      }
+
+      .sample-content ul {
+        margin-left: 1.25rem;
+        color: var(--color-text-secondary);
+      }
+
+      .sample-content li {
+        margin-bottom: 0.5rem;
+      }
+
+      .definition {
+        background: var(--color-bg-white);
+        border-top: 1px solid var(--color-border);
+      }
+
+      .definition-card {
+        background: var(--color-text);
+        color: white;
+        border-radius: 16px;
+        padding: 2rem;
+      }
+
+      .definition-card h2 {
+        font-family: var(--font-serif);
+        font-size: 2rem;
+        font-weight: 400;
+        margin-bottom: 1rem;
+      }
+
+      .definition-card p {
+        color: rgba(255, 255, 255, 0.84);
+        max-width: 820px;
+      }
+
+      .trust-note {
+        background: var(--color-accent-light);
+        border: 1px solid #f6c8bd;
+        border-radius: 12px;
+        padding: 1.25rem;
+        font-family: var(--font-sans);
+        color: var(--color-text-secondary);
+        font-size: 0.93rem;
+      }
+
+      .cta-section {
+        background: linear-gradient(
+          135deg,
+          var(--color-primary) 0%,
+          var(--color-primary-dark) 100%
+        );
+        color: white;
+      }
+
+      .cta-grid {
+        display: grid;
+        grid-template-columns: 1fr 0.8fr;
+        gap: 3rem;
+        align-items: center;
+      }
+
+      .cta-section h2 {
+        font-family: var(--font-serif);
+        font-size: 2.3rem;
+        font-weight: 400;
+        line-height: 1.25;
+        margin-bottom: 1rem;
+      }
+
+      .cta-section p {
+        color: rgba(255, 255, 255, 0.88);
+        font-size: 1.08rem;
+      }
+
+      .cta-card {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 14px;
+        padding: 1.5rem;
+        font-family: var(--font-sans);
+      }
+
+      .cta-card a {
+        color: white;
+        font-weight: 700;
+      }
+
+      footer {
+        background: var(--color-bg-white);
+        padding: 3rem 0;
+      }
+
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 2rem;
+        font-family: var(--font-sans);
+      }
+
+      .footer-about {
+        max-width: 500px;
+      }
+
+      .footer-about h4 {
+        font-size: 0.95rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      .footer-about p {
+        font-size: 0.9rem;
+        color: var(--color-text-muted);
+        line-height: 1.6;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 880px) {
+        .hero-grid,
+        .cta-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .cards,
+        .steps {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 620px) {
+        .container {
+          padding: 0 1.25rem;
+        }
+
+        .hero {
+          padding: 3.5rem 0;
+        }
+
+        .cards,
+        .steps {
+          grid-template-columns: 1fr;
+        }
+
+        nav {
+          gap: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-inner">
+          <a class="logo" href="/">
+            <div class="logo-mark">YRI</div>
+            yri.ai
+          </a>
+          <nav>
+            <a href="#included">Included</a>
+            <a href="#process">Process</a>
+            <a href="#pilot">Pilot</a>
+            <a href="mailto:ari@yri.ai?subject=Ari%20Briefs%20sample%20request">Request Sample</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="hero-grid">
+            <div>
+              <div class="eyebrow">ARI Briefs · Applied Reasoning Intelligence</div>
+              <h1>Your med spa’s <em>Monday growth action brief</em>.</h1>
+              <p class="hero-subtitle">
+                See what nearby clinics changed, what patients are saying publicly, and what to do this week — without adding another dashboard or agency retainer.
+              </p>
+              <div class="hero-cta">
+                <a
+                  class="button primary"
+                  href="mailto:ari@yri.ai?subject=Ari%20Briefs%20sample%20request"
+                  >Request a sample brief</a
+                >
+                <a class="button secondary" href="#included">See what’s included</a>
+              </div>
+            </div>
+            <aside class="pilot-card" id="pilot">
+              <h2>4-week pilot</h2>
+              <div class="price">$149</div>
+              <p>
+                A focused test to see whether a public-signal action memo helps your team decide what to promote, post, or fix.
+              </p>
+              <ul>
+                <li>One local market setup</li>
+                <li>5–8 competitor benchmark</li>
+                <li>Short weekly action memo</li>
+                <li>Source links/screenshots where useful</li>
+                <li>One ready-to-use marketing asset</li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section id="included">
+        <div class="container">
+          <div class="section-header">
+            <h2>What Ari watches</h2>
+          </div>
+          <p class="intro-copy">
+            Most med spa owners do not have time to check every competitor’s offers, public reviews, booking flow, and content every week. Ari Briefs watches the public signals and turns them into a decision memo: what changed, what matters, and what to do next.
+          </p>
+          <div class="cards">
+            <div class="card">
+              <h3>Competitor changes</h3>
+              <p>Public websites, offer pages, visible promos, service emphasis, booking paths, and local positioning shifts.</p>
+            </div>
+            <div class="card">
+              <h3>Review and trust themes</h3>
+              <p>Public review recency, repeated praise or friction themes, visible trust signals, and reputation opportunities.</p>
+            </div>
+            <div class="card">
+              <h3>Content opportunities</h3>
+              <p>Public social/content cadence, market themes, FAQ gaps, Google Business Profile ideas, and timely post angles.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="process" id="process">
+        <div class="container">
+          <div class="section-header">
+            <h2>How it works</h2>
+          </div>
+          <div class="steps">
+            <div class="step">
+              <div class="step-number">01</div>
+              <h3>Define the local market</h3>
+              <p>Choose your clinic, geography, and the 5–8 nearby competitors worth watching.</p>
+            </div>
+            <div class="step">
+              <div class="step-number">02</div>
+              <h3>Capture public signals</h3>
+              <p>Review public websites, listings, offers, review themes, social signals, and booking paths.</p>
+            </div>
+            <div class="step">
+              <div class="step-number">03</div>
+              <h3>Reason about what matters</h3>
+              <p>Separate noise from useful changes, then benchmark your clinic against the local market.</p>
+            </div>
+            <div class="step">
+              <div class="step-number">04</div>
+              <h3>Send the action memo</h3>
+              <p>Deliver three practical actions and one ready-to-use asset your team can review and adapt.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-header">
+            <h2>Sample output</h2>
+          </div>
+          <div class="sample-box">
+            <div class="sample-header">
+              <h3>What a weekly action memo might surface</h3>
+            </div>
+            <div class="sample-content">
+              <ul>
+                <li>Three nearby clinics are leading with Botox, wellness, or new-patient offers this week.</li>
+                <li>Your booking CTA is less visible than several local competitors.</li>
+                <li>Competitors with clearer first-visit offers make the next step easier for new patients.</li>
+                <li>Here is a Google Business Profile post draft for this week.</li>
+                <li>Here is a review-request prompt that asks for honest feedback without incentives.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="definition">
+        <div class="container">
+          <div class="definition-card">
+            <h2>ARI means Applied Reasoning Intelligence.</h2>
+            <p>
+              ARI is YRI’s practical layer for turning public signals into useful business decisions. Ari Briefs applies that reasoning to local growth: gather the public evidence, decide what matters, and turn it into an action memo a business can use.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-header">
+            <h2>Trust and scope</h2>
+          </div>
+          <div class="cards">
+            <div class="card">
+              <h3>What it is</h3>
+              <ul>
+                <li>Public-signal monitoring</li>
+                <li>Local competitive benchmarking</li>
+                <li>Practical marketing action memos</li>
+                <li>One ready-to-use asset per cycle</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>What it is not</h3>
+              <ul>
+                <li>Ad management</li>
+                <li>Social media management</li>
+                <li>SEO execution</li>
+                <li>A dashboard you have to manage</li>
+              </ul>
+            </div>
+            <div class="trust-note">
+              <strong>Compliance note:</strong> Ari Briefs uses public information to provide marketing and local-growth observations. It does not use patient data, PHI, private systems, or login-gated sources. Recommendations are for marketing insight only and should be reviewed by the clinic before use. Ari Briefs does not provide clinical, medical, or legal advice and does not support review manipulation or fake-review incentives.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-section">
+        <div class="container">
+          <div class="cta-grid">
+            <div>
+              <h2>Want a sample for your clinic or local market?</h2>
+              <p>
+                Send the clinic name and city. Ari will prepare a concise sample that shows the benchmark style, public sources, and action memo format.
+              </p>
+            </div>
+            <div class="cta-card">
+              <p>
+                Email
+                <a href="mailto:ari@yri.ai?subject=Ari%20Briefs%20sample%20request">ari@yri.ai</a>
+                with “sample brief” in the subject.
+              </p>
+              <p style="margin-top: 1rem">
+                Pilot: 4 weeks for $149. Continue only if the brief is useful enough to keep.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-inner">
+          <div class="footer-about">
+            <h4>YRI Applied Intelligence</h4>
+            <p>
+              YRI builds practical AI systems for context, coordination, and judgment. Ari Briefs is the first public service from ARI — Applied Reasoning Intelligence.
+            </p>
+          </div>
+          <div class="footer-links">
+            <a href="/">YRI home</a>
+            <a href="mailto:ari@yri.ai">ari@yri.ai</a>
+            <a href="https://github.com/yri-ai">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
