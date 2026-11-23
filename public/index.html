@@ -29,8 +29,7 @@
     "email": "leonard.langsdorf@yri.ai",
     "founder": { "@type": "Person", "name": "Leonard Langsdorf" },
     "brand": [
-      { "@type": "Brand", "name": "Puple", "url": "https://puple.co/" },
-      { "@type": "Brand", "name": "Ari Briefs", "url": "https://yri.ai/ari-briefs/" }
+      { "@type": "Brand", "name": "Puple", "url": "https://puple.co/" }
     ],
     "sameAs": ["https://github.com/yri-ai", "https://puple.co/"]
   }
@@ -86,7 +85,7 @@
     h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(1.7rem, 3.4vw, 2.4rem); line-height: 1.2; margin: 0 0 12px; letter-spacing: -0.02em; text-wrap: balance; }
     .intro { color: var(--ink-2); max-width: 60ch; margin: 0; }
 
-    .products { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 16px; margin-top: 32px; }
+    .products { display: grid; grid-template-columns: minmax(0, 1fr); max-width: 760px; gap: 16px; margin-top: 32px; }
     .product { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: clamp(22px, 3.5vw, 40px); display: flex; flex-direction: column; gap: 12px; min-width: 0; }
     .product-head { display: flex; align-items: center; gap: 12px; }
     .product-head img { width: 44px; height: 44px; }
@@ -178,13 +177,6 @@
             <p>AI copies last year's event, drafts the newsletter and pre-checks vendor documents. Staff approve before anything goes out. Member businesses join free through their community.</p>
             <a class="btn" href="https://puple.co/">Visit puple.co <span aria-hidden="true">→</span></a>
           </article>
-          <article class="product small" aria-labelledby="ari-h">
-            <span class="tag">Pilot</span>
-            <div class="product-head"><h3 id="ari-h">Ari Briefs</h3></div>
-            <p>A Monday growth brief for a local business: what nearby competitors changed, what customers say in public reviews, and three things to do this week.</p>
-            <p class="note">In a small pilot with local service businesses.</p>
-            <a class="text-link" href="/ari-briefs/">About Ari Briefs →</a>
-          </article>
         </div>
       </div>
     </section>
@@ -217,7 +209,7 @@
     <section id="research" aria-labelledby="research-h">
       <div class="wrap">
         <p class="section-label">Research</p>
-        <h2 id="research-h">Open-source work behind the products</h2>
+        <h2 id="research-h">Open-source work behind the product</h2>
         <p class="intro">How AI keeps context, coordinates with people and other agents, and makes judgment calls.</p>
         <div class="research">
           <article class="card">
