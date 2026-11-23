@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Puple">
+  <title>Puple</title>
+  <defs>
+    <clipPath id="puple-c"><circle cx="50" cy="50" r="48"/></clipPath>
+    <linearGradient id="puple-g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7d55bd"/>
+      <stop offset="1" stop-color="#6a42a8"/>
+    </linearGradient>
+  </defs>
+  <circle cx="50" cy="50" r="48" fill="url(#puple-g)"/>
+  <g clip-path="url(#puple-c)">
+    <g fill="#a27fd8" fill-opacity="0.85">
+      <circle cx="30" cy="38" r="11"/>
+      <path d="M10 100V70c0-11 9-19 20-19s20 8 20 19v30z"/>
+      <circle cx="70" cy="38" r="11"/>
+      <path d="M50 100V70c0-11 9-19 20-19s20 8 20 19v30z"/>
+    </g>
+    <circle cx="50" cy="52" r="10.5" fill="#f2c3a1"/>
+    <path d="M33 100V80c0-10 7.6-17 17-17s17 7 17 17v20z" fill="#f2c3a1"/>
+  </g>
+</svg>
